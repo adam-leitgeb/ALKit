@@ -23,7 +23,7 @@ final public class ErrorStatePluginController: UIViewController, ErrorPlugin {
     private var didLayoutOnce = false
 
     public var titleTextColor: UIColor = .black
-    public var messageTextColor: UIColor = .lightGray
+    public var messageTextColor: UIColor = .black
     public var isAutomaticLoadingEnabled: Bool = true
     public var actionHandler: TapHandler?
 
@@ -62,15 +62,20 @@ final public class ErrorStatePluginController: UIViewController, ErrorPlugin {
     // MARK: - Setup
 
     private func setupLabels() {
-        titleLabel.font = .systemFont(ofSize: 20.0)
+        titleLabel.font = .systemFont(ofSize: 26.0, weight: .semibold)
         titleLabel.textColor = titleTextColor
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
 
-        messageLabel.font = .systemFont(ofSize: 17.0)
+        messageLabel.font = .systemFont(ofSize: 18.0, weight: .regular)
         messageLabel.textColor = messageTextColor
         messageLabel.textAlignment = .center
         messageLabel.numberOfLines = 0
+
+        actionButton.titleLabel?.font = .systemFont(ofSize: 18.0, weight: .semibold)
+        actionButton.layer.cornerRadius = 8.0
+        actionButton.addTarget(self, action: #selector(actionButtonTapped(_:)), for: .touchUpInside)
+        actionButton.activityIndicatorColor = .white
     }
 
     private func setupStackViews() {
@@ -97,8 +102,9 @@ final public class ErrorStatePluginController: UIViewController, ErrorPlugin {
         view.addSubview(masterStackview)
         NSLayoutConstraint.activate([
             masterStackview.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0),
-            masterStackview.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 32.0),
-            masterStackview.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            masterStackview.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32.0),
+            masterStackview.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            actionButton.heightAnchor.constraint(equalToConstant: 50.0)
         ])
     }
 
@@ -112,7 +118,8 @@ final public class ErrorStatePluginController: UIViewController, ErrorPlugin {
 
     // MARK: - Actions
 
-    @IBAction private func actionButtonTapped(_ sender: LoadingButton) {
+    @objc
+    private func actionButtonTapped(_ sender: LoadingButton) {
         if isAutomaticLoadingEnabled {
             sender.startLoading()
         }
