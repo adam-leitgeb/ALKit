@@ -14,10 +14,6 @@ public protocol OnboardingViewControllerDelegate: class {
 
 open class OnboardingViewController: UIViewController {
 
-    // MARK: - Types
-
-    private typealias Interval = (a: CGFloat, b: CGFloat)
-
     // MARK: - Properties
 
     public weak var delegate: OnboardingViewControllerDelegate?
@@ -47,7 +43,7 @@ open class OnboardingViewController: UIViewController {
 
         if !didLayoutOnce {
             setupLayout()
-            didLayoutOnce = true
+            didLayoutOnce.toggle()
         }
         layoutScrollViewContent()
     }
@@ -86,13 +82,8 @@ open class OnboardingViewController: UIViewController {
     // MARK: - Configuration
 
     public func reloadScrollView(with views: [UIView]) {
-        scrollView.subviews.forEach { subview in
-            subview.removeFromSuperview()
-        }
-        views.forEach { view in
-            scrollView.addSubview(view)
-        }
-
+        scrollView.subviews.forEach { $0.removeFromSuperview() }
+        views.forEach { scrollView.addSubview($0) }
         view.setNeedsLayout()
     }
 
@@ -122,44 +113,6 @@ open class OnboardingViewController: UIViewController {
 
 extension OnboardingViewController: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
-        let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
-        let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
-
-        let subviews: [UIView] = scrollView.subviews
-
-        let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: 0.0)
-        let intervals = makeIntervals(split: 1.0, by: subviews.count - 1)
-
-        guard let interval = intervals.enumerated().first(where: { percentOffset.x > $0.element.a && percentOffset.x <= $0.element.b }) else {
-            return
-        }
-        guard percentOffset.x > 0.0 && percentOffset.x <= 1, (interval.offset + 1) < subviews.count else {
-            return
-        }
-
-        let scaleFactor = 1.0 / CGFloat(subviews.count - 1)
-        let scale0 = (interval.element.b - percentOffset.x) / scaleFactor
-        let scale1 = percentOffset.x / interval.element.b
-
-        if let currentView = scrollView.subviews[safe: interval.offset] as? OnboardingViewScalable {
-            currentView.scaleView(scale: scale0)
-        }
-        if let nextView = scrollView.subviews[safe: interval.offset + 1] as? OnboardingViewScalable {
-            nextView.scaleView(scale: scale1)
-        }
-
         currentPage = Int(scrollView.contentOffset.x / view.frame.width)
-    }
-
-    // MARK: - Utilities
-
-    private func makeIntervals(split whole: CGFloat, by nPieces: Int) -> [Interval] {
-        let step: CGFloat = whole / CGFloat(nPieces)
-        let iterations: [CGFloat] = .init(repeating: step, count: nPieces)
-
-        return iterations
-            .enumerated()
-            .map { Interval(a: $0.element * CGFloat($0.offset), b: $0.element * CGFloat($0.offset + 1)) }
     }
 }
