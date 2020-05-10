@@ -22,8 +22,8 @@ final public class ErrorStatePluginController: UIViewController, ErrorPlugin {
     private let masterStackview = UIStackView()
     private var didLayoutOnce = false
 
-    public var titleTextColor: UIColor = .black
-    public var messageTextColor: UIColor = .lightGray
+    public var titleTextColor: UIColor = .label
+    public var messageTextColor: UIColor = .secondaryLabel
     public var isAutomaticLoadingEnabled: Bool = true
     public var actionHandler: TapHandler?
 
@@ -72,7 +72,7 @@ final public class ErrorStatePluginController: UIViewController, ErrorPlugin {
         messageLabel.textAlignment = .center
         messageLabel.numberOfLines = 0
 
-        actionButton.titleLabel?.font = .systemFont(ofSize: 18.0, weight: .bold)
+        actionButton.titleLabel?.font = .systemFont(ofSize: 18.0, weight: .semibold)
         actionButton.layer.cornerRadius = 8.0
         actionButton.translatesAutoresizingMaskIntoConstraints = false
     }
