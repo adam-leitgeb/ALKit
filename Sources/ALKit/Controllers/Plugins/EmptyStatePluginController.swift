@@ -48,7 +48,7 @@ final public class EmptyStatePluginController: UIViewController, Plugin {
     // MARK: - Setup
 
     private func setupViews() {
-        titleLabel.font = .systemFont(ofSize: 24.0, weight: .bold)
+        titleLabel.font = .systemFont(ofSize: 26.0, weight: .bold)
         titleLabel.textColor = .lightGray
         titleLabel.textAlignment = .center
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
