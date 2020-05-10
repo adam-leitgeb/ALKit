@@ -85,6 +85,7 @@ open class OnboardingViewController: UIViewController {
         scrollView.subviews.forEach { $0.removeFromSuperview() }
         views.forEach { scrollView.addSubview($0) }
         view.setNeedsLayout()
+        view.layoutIfNeeded()
     }
 
     public func nextPage() {
