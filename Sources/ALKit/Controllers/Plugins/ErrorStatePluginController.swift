@@ -22,8 +22,8 @@ final public class ErrorStatePluginController: UIViewController, ErrorPlugin {
     private let masterStackview = UIStackView()
     private var didLayoutOnce = false
 
-    public var titleTextColor: UIColor = .label
-    public var messageTextColor: UIColor = .secondaryLabel
+    public var titleTextColor: UIColor = .black
+    public var messageTextColor: UIColor = .black
     public var isAutomaticLoadingEnabled: Bool = true
     public var actionHandler: TapHandler?
 
