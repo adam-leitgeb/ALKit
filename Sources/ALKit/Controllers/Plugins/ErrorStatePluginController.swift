@@ -97,7 +97,7 @@ final public class ErrorStatePluginController: UIViewController, ErrorPlugin {
         view.addSubview(masterStackview)
         NSLayoutConstraint.activate([
             masterStackview.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0),
-            masterStackview.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 32.0),
+            masterStackview.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32.0),
             masterStackview.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
