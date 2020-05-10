@@ -62,15 +62,19 @@ final public class ErrorStatePluginController: UIViewController, ErrorPlugin {
     // MARK: - Setup
 
     private func setupLabels() {
-        titleLabel.font = .systemFont(ofSize: 20.0)
+        titleLabel.font = .systemFont(ofSize: 26.0, weight: .bold)
         titleLabel.textColor = titleTextColor
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
 
-        messageLabel.font = .systemFont(ofSize: 17.0)
+        messageLabel.font = .systemFont(ofSize: 18.0, weight: .medium)
         messageLabel.textColor = messageTextColor
         messageLabel.textAlignment = .center
         messageLabel.numberOfLines = 0
+
+        actionButton.titleLabel?.font = .systemFont(ofSize: 18.0, weight: .bold)
+        actionButton.layer.cornerRadius = 8.0
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
     }
 
     private func setupStackViews() {
@@ -98,7 +102,8 @@ final public class ErrorStatePluginController: UIViewController, ErrorPlugin {
         NSLayoutConstraint.activate([
             masterStackview.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0),
             masterStackview.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32.0),
-            masterStackview.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            masterStackview.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            actionButton.heightAnchor.constraint(equalToConstant: 50.0)
         ])
     }
 
