@@ -67,7 +67,7 @@ final public class ErrorStatePluginController: UIViewController, ErrorPlugin {
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
 
-        messageLabel.font = .systemFont(ofSize: 18.0, weight: .regular)
+        messageLabel.font = .systemFont(ofSize: 18.0, weight: .medium)
         messageLabel.textColor = messageTextColor
         messageLabel.textAlignment = .center
         messageLabel.numberOfLines = 0
