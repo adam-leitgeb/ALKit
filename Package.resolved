@@ -5,9 +5,9 @@
         "package": "DataSource",
         "repositoryURL": "https://github.com/adam-leitgeb/DataSource.git",
         "state": {
-          "branch": "master",
-          "revision": "31a8808219cf8cfb100c88ae19cf2119a2864f6f",
-          "version": null
+          "branch": null,
+          "revision": "d833b4371534886ca96247ec1b86401bf870e70d",
+          "version": "1.0.0"
         }
       }
     ]
