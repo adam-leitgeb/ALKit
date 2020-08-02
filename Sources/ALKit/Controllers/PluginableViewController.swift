@@ -139,13 +139,13 @@ extension PluginableViewControllerInput where Self: PluginableViewController {
 
     // Utilities
 
-    private func layoutLoadingState() {
+    public func layoutLoadingState() {
         let plugin = loadingStatePluginFactory
         currentPlugin = plugin
         isNextStateChangeAnimated = true
     }
 
-    private func layoutEmptyState() {
+    public func layoutEmptyState() {
         let plugin = emptyStatePluginFactory
         currentPlugin = plugin
         isNextStateChangeAnimated = true
@@ -158,7 +158,7 @@ extension PluginableViewControllerInput where Self: PluginableViewController {
         isNextStateChangeAnimated = true
     }
 
-    private func layoutPopulatedState(with sections: [Section]) {
+    public func layoutPopulatedState(with sections: [Section]) {
         var plugin = isNextStateChangeAnimated
             ? tableViewControllerPluginFactory
             : tableViewPluginChildController ?? tableViewControllerPluginFactory
