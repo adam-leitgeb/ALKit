@@ -82,6 +82,7 @@ open class PluginableViewController: UIViewController {
 // MARK: - DataSourcablePlugin delegate
 
 extension PluginableViewController: DataSourcablePluginDelegate {
+    @objc
     open func willScrollToBottom() {
         // designated to override
     }
