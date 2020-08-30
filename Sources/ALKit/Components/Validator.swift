@@ -13,6 +13,12 @@ public struct Validator<InputValue, OutputValue> {
 
     public let validate: (InputValue) throws -> OutputValue
 
+    // MARK: - Object Lifecycle
+
+    public init(validate: @escaping (InputValue) throws -> OutputValue) {
+        self.validate = validate
+    }
+
     // MARK: - Actions
 
     public func validate(_ inputValue: InputValue, combinedWith validators: Validator...) throws -> OutputValue {
