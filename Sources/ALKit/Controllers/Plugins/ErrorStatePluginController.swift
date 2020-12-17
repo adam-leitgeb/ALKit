@@ -22,10 +22,24 @@ final public class ErrorStatePluginController: UIViewController, ErrorPlugin {
     private let masterStackview = UIStackView()
     private var didLayoutOnce = false
 
-    public var titleTextColor: UIColor = .black
-    public var messageTextColor: UIColor = .black
     public var isAutomaticLoadingEnabled: Bool = true
     public var actionHandler: TapHandler?
+
+    public var titleTextColor: UIColor = {
+        if #available(iOS 13.0, *) {
+            return .label
+        } else {
+            return .black
+        }
+    }()
+
+    public var messageTextColor: UIColor = {
+        if #available(iOS 13.0, *) {
+            return .secondaryLabel
+        } else {
+            return .black
+        }
+    }()
 
     public var localizedDescription: String? {
         didSet {
