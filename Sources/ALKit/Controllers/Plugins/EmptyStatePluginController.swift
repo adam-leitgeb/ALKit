@@ -51,6 +51,7 @@ final public class EmptyStatePluginController: UIViewController, Plugin {
         titleLabel.font = .systemFont(ofSize: 26.0, weight: .bold)
         titleLabel.textAlignment = .center
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.numberOfLines = 0
 
         if #available(iOS 13.0, *) {
             titleLabel.textColor = .secondaryLabel
