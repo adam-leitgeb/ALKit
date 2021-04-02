@@ -1,0 +1,15 @@
+
+/* Alerts */
+
+"scan-bill.alert.camera-denied.title" = "Access denied";
+"scan-bill.alert.camera-denied.message" = "Please, allow camera access in settings.";
+"alert.hud.default-title" = "Loading...";
+
+/* Alert actions */
+
+"alert.action.confirm" = "Confirm";
+"alert.action.retry" = "Retry";
+"alert.action.open-settings" = "Open settings";
+"alert.action.close" = "Close";
+"alert.action.remove" = "Remove";
+"alert.action.logout" = "Logout";

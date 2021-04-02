@@ -35,7 +35,6 @@ public protocol ObservableDeinitialization: AnyObject {
 }
 
 extension ObservableDeinitialization {
-
     /// This stores the `DeinitializationObserver`. It's fileprivate so you
     /// cannot interfere with this outside. Also we're using a strong retain
     /// which will ensure that the `DeinitializationObserver` is deinitialized

@@ -16,7 +16,7 @@ public extension UIAlertAction {
 public extension UIAlertAction {
     class func confirmAction(_ handler: @escaping TapHandler) -> UIAlertAction {
         UIAlertAction(
-            title: NSLocalizedString("alert.action.confirm", comment: "Confirm"),
+            title: NSLocalizedString("alert.action.confirm", bundle: .module, comment: "Confirm"),
             style: .default,
             handler: { _ in handler() }
         )
@@ -24,7 +24,7 @@ public extension UIAlertAction {
 
     class func retryAction(_ handler: @escaping TapHandler) -> UIAlertAction {
         UIAlertAction(
-            title: NSLocalizedString("alert.action.retry", comment: "Retry"),
+            title: NSLocalizedString("alert.action.retry", bundle: .module, comment: "Retry"),
             style: .default,
             handler: { _ in handler() }
         )
@@ -32,7 +32,7 @@ public extension UIAlertAction {
 
     class func openSettingsAction(_ handler: @escaping TapHandler) -> UIAlertAction {
         UIAlertAction(
-            title: NSLocalizedString("alert.action.open-settings", comment: "Open settings"),
+            title: NSLocalizedString("alert.action.open-settings", bundle: .module, comment: "Open settings"),
             style: .default,
             handler: { _ in handler() }
         )
@@ -40,7 +40,7 @@ public extension UIAlertAction {
 
     class var openSettingsAction: UIAlertAction {
         UIAlertAction(
-            title: NSLocalizedString("alert.action.open-settings", comment: "Open settings"),
+            title: NSLocalizedString("alert.action.open-settings", bundle: .module, comment: "Open settings"),
             style: .default,
             handler: { _ in
                 guard let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) else {
@@ -59,7 +59,7 @@ public extension UIAlertAction {
 
     class func closeAction(_ handler: TapHandler? = nil) -> UIAlertAction {
         UIAlertAction(
-            title: NSLocalizedString("alert.action.close", comment: "Close"),
+            title: NSLocalizedString("alert.action.close", bundle: .module, comment: "Close"),
             style: .cancel,
             handler: { _ in handler?() }
         )
@@ -69,7 +69,7 @@ public extension UIAlertAction {
 
     class func removeAction(_ handler: @escaping () -> Void) -> UIAlertAction {
         UIAlertAction(
-            title: NSLocalizedString("alert.action.remove", comment: "Remove"),
+            title: NSLocalizedString("alert.action.remove", bundle: .module, comment: "Remove"),
             style: .destructive,
             handler: { _ in handler() }
         )
@@ -77,7 +77,7 @@ public extension UIAlertAction {
 
     class func logoutAction(_ handler: @escaping () -> Void) -> UIAlertAction {
         UIAlertAction(
-            title: NSLocalizedString("alert.action.logout", comment: "Logout"),
+            title: NSLocalizedString("alert.action.logout", bundle: .module, comment: "Logout"),
             style: .destructive,
             handler: { _ in handler() }
         )

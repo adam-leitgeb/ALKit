@@ -1,0 +1,15 @@
+
+/* Alerts */
+
+"scan-bill.alert.camera-denied.title" = "Přístup zamítnut";
+"scan-bill.alert.camera-denied.message" = "Povolte prosím přístup v nastavení přístup ke kameře.";
+"alert.hud.default-title" = "Načítání...";
+
+/* Alert actions */
+
+"alert.action.confirm" = "Potvrdit";
+"alert.action.retry" = "Znovu";
+"alert.action.open-settings" = "Otevřít nastavení";
+"alert.action.close" = "Zavřít";
+"alert.action.remove" = "Smazat";
+"alert.action.logout" = "Odhlásit";

@@ -21,8 +21,8 @@ public extension UIAlertController {
 
     class var cameraAccessDenied: UIAlertController {
         let alert = UIAlertController(
-            title: NSLocalizedString("scan-bill.alert.camera-denied.title", comment: "Access denied"),
-            message: NSLocalizedString("scan-bill.alert.camera-denied.message", comment: "Please, allow camera access in settings."),
+            title: NSLocalizedString("scan-bill.alert.camera-denied.title", bundle: .module, comment: "Access denied"),
+            message: NSLocalizedString("scan-bill.alert.camera-denied.message", bundle: .module, comment: "Please, allow camera access in settings."),
             preferredStyle: .alert
         )
         alert.addAction(.openSettingsAction)
@@ -38,7 +38,7 @@ public extension UIAlertController {
         activityIndicator.startAnimating()
 
         let alert = UIAlertController(
-            title: customTitle ?? NSLocalizedString("alert.hud.default-title", comment: "Loading..."),
+            title: customTitle ?? NSLocalizedString("alert.hud.default-title", bundle: .module, comment: "Loading..."),
             message: nil,
             preferredStyle: .alert
         )

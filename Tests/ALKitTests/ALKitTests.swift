@@ -2,13 +2,19 @@ import XCTest
 @testable import ALKit
 
 final class ALKitTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-    }
+    
+    // MARK: - Properties
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testLocalizationResource", testLocalizationResource)
     ]
+    
+    // MARK: - Tests Resources
+    
+    // We are testing only one action, because all we want is to make sure
+    // that Resources are linked properly.
+    func testLocalizationResource() {
+        XCTAssertEqual(UIAlertController.cameraAccessDenied.title, "Access denied")
+        XCTAssertEqual(UIAlertAction.closeAction.title, "Close")
+    }
 }
